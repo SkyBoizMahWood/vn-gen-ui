@@ -5048,4 +5048,1043 @@ export default [{
     ],
     "generated_by": "gemini-2.0-flash-exp",
     "approach": "proposed"
+},
+{
+  "id": "74255f74-ed67-11ef-b3e0-010101010000",
+  "title": "Sakura Bloom Cafe",
+  "genre": "Japanese Visual Novel",
+  "themes": [
+    "Romance",
+    "Comedy",
+    "Drama",
+    "Slice of Life"
+  ],
+  "main_scenes": [
+    {
+      "id": 1,
+      "title": "Sakura Bloom Cafe",
+      "location": "Small town, near a large sakura tree",
+      "description": "A cozy cafe decorated with sakura motifs. The interior is warm and inviting, with soft lighting and the aroma of freshly baked goods. The large windows offer a view of the blooming sakura tree outside.",
+      "image": null
+    },
+    {
+      "id": 2,
+      "title": "Town Festival",
+      "location": "Town center",
+      "description": "The town's annual spring festival is in full swing. Colorful stalls line the streets, offering games, food, and souvenirs. The air is filled with music, laughter, and the scent of street food.",
+      "image": null
+    },
+    {
+      "id": 3,
+      "title": "Riverbank",
+      "location": "Edge of town, alongside a slow flowing river",
+      "description": "A peaceful spot by the river. Willow trees provide shade, and the water reflects the sky. A perfect place for quiet contemplation or a romantic stroll.",
+      "image": null
+    },
+    {
+      "id": 4,
+      "title": "MC's Apartment",
+      "location": "Second floor of an older building above a bookstore",
+      "description": "A small, cluttered, but comfortable apartment. Bookshelves line the walls. A desk sits near the window, covered in notebooks and pens.",
+      "image": null
+    },
+    {
+      "id": 5,
+      "title": "Local High School",
+      "location": "Edge of town",
+      "description": "A sprawling campus, filled with the usual trappings of a local high school. Students mill about between classes, chatting and laughing.",
+      "image": null
+    }
+  ],
+  "main_characters": [
+    {
+      "id": 1,
+      "first_name": "Haruki",
+      "last_name": "Tanaka",
+      "species": "Human",
+      "age": 18,
+      "gender": "Male",
+      "role": "Main Character",
+      "background": "Haruki is a kind but somewhat introverted young man who works part-time at Sakura Bloom Cafe. He dreams of becoming a writer but lacks confidence.",
+      "place_of_birth": "The town where the cafe is located",
+      "physical_appearance": [
+        "Short, messy black hair",
+        "Warm brown eyes",
+        "Slightly built",
+        "Usually wears casual clothing"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 2,
+      "first_name": "Aiko",
+      "last_name": "Yamamoto",
+      "species": "Human",
+      "age": 17,
+      "gender": "Female",
+      "role": "Love Interest",
+      "background": "Aiko is a cheerful and outgoing girl who is popular at school. She's a regular at the Sakura Bloom Cafe and always brings a smile with her.",
+      "place_of_birth": "The town where the cafe is located",
+      "physical_appearance": [
+        "Long, flowing brown hair",
+        "Bright green eyes",
+        "Energetic smile",
+        "Often wears fashionable outfits"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 3,
+      "first_name": "Ren",
+      "last_name": "Sato",
+      "species": "Human",
+      "age": 18,
+      "gender": "Male",
+      "role": "Rival/Best Friend",
+      "background": "Ren is Haruki's best friend and a talented artist. He's supportive but also pushes Haruki to step outside of his comfort zone.",
+      "place_of_birth": "The town where the cafe is located",
+      "physical_appearance": [
+        "Spiky blonde hair",
+        "Blue eyes",
+        "Tall and athletic",
+        "Often wears street-style clothing"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 4,
+      "first_name": "Mei",
+      "last_name": "Kimura",
+      "species": "Human",
+      "age": 25,
+      "gender": "Female",
+      "role": "Cafe Owner",
+      "background": "Mei is the kind and supportive owner of Sakura Bloom Cafe. She acts as a mentor figure to Haruki.",
+      "place_of_birth": "A neighboring town",
+      "physical_appearance": [
+        "Neat, shoulder-length dark hair",
+        "Calm, gray eyes",
+        "Warm and welcoming smile",
+        "Typically wears comfortable but stylish clothing"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 5,
+      "first_name": "Emi",
+      "last_name": "Nakamura",
+      "species": "Human",
+      "age": 17,
+      "gender": "Female",
+      "role": "Love Interest/Childhood Friend",
+      "background": "Emi is Haruki's childhood friend who recently moved back to town. She's quiet and reserved but secretly harbors feelings for Haruki.",
+      "place_of_birth": "The town where the cafe is located",
+      "physical_appearance": [
+        "Short, bobbed black hair",
+        "Shy brown eyes",
+        "Petite build",
+        "Often wears simple and modest clothing"
+      ],
+      "image": null,
+      "original_image": null
+    }
+  ],
+  "synopsis": "Haruki, a young man working at a local cafe, dreams of becoming a writer but struggles with self-doubt. His life takes an unexpected turn when Aiko, a bright and cheerful regular, starts visiting the cafe more often. As Haruki navigates his feelings for Aiko, he must also deal with the return of his childhood friend, Emi, and the pressures of pursuing his dreams. Through humorous interactions, heartwarming moments, and difficult choices, Haruki learns about love, friendship, and the importance of believing in himself.",
+  "chapter_synopses": [
+    {
+      "chapter": 1,
+      "synopsis": "Haruki's routine at Sakura Bloom Cafe is disrupted by the increasing presence of Aiko. He starts to develop feelings for her, but his insecurities hold him back. Ren encourages him to be more assertive. Emi returns to town, stirring up old feelings and memories.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "scene_ids": [
+        1,
+        4,
+        5
+      ]
+    },
+    {
+      "chapter": 2,
+      "synopsis": "The town's spring festival provides opportunities for Haruki to spend time with both Aiko and Emi. He struggles to balance his feelings and avoid hurting anyone. Mei offers him advice based on her own past experiences. Ren provides comedic relief and helps Haruki see things from a different perspective.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "scene_ids": [
+        2,
+        3
+      ]
+    },
+    {
+      "chapter": 3,
+      "synopsis": "Haruki must make a difficult choice between Aiko and Emi. He also needs to decide whether to pursue his dream of becoming a writer or play it safe. His decision will impact not only his own future but also the lives of those around him.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "scene_ids": [
+        1,
+        3,
+        4
+      ]
+    }
+  ],
+  "beginning": "The bell above the Sakura Bloom Cafe's door jingled, announcing another customer. I looked up from wiping down the counter, forcing a smile. It was Aiko, her usual bright self. 'Haruki-kun! Good afternoon!' she chirped, her eyes sparkling like the sakura blossoms outside. My heart skipped a beat. 'H-Hey, Aiko. The usual?'",
+  "endings": [
+    {
+      "id": 1,
+      "ending": "Haruki confesses his feelings to Aiko, and they begin a relationship. He gains the confidence to pursue his writing dreams, inspired by her unwavering support. He publishes his first short story."
+    },
+    {
+      "id": 2,
+      "ending": "Haruki realizes that his feelings for Emi are stronger than he initially thought. He rekindles their childhood bond, and they support each other's dreams. Haruki continues to work at the cafe while writing in his spare time."
+    },
+    {
+      "id": 3,
+      "ending": "Haruki chooses neither Aiko nor Emi, realizing that he needs to focus on himself and his own goals. He dedicates himself to his writing and eventually moves to a larger city to pursue his career. He maintains a close friendship with both Aiko and Emi."
+    }
+  ],
+  "generated_by": "gemini-2.0-flash",
+  "approach": "proposed"
+},
+{
+  "id": "a1192022-eda2-11ef-81b8-010101010000",
+  "title": "Cafe Lumina: A Latte Love Story",
+  "genre": "Japanese Visual Novel",
+  "themes": [
+    "Romance",
+    "Comedy",
+    "Drama",
+    "Self-Discovery",
+    "Small Town Life"
+  ],
+  "main_scenes": [
+    {
+      "id": 1,
+      "title": "Cafe Lumina",
+      "location": "The heart of Oakhaven, a cozy coastal town",
+      "description": "A small, brightly lit cafe with large windows overlooking the ocean. The aroma of coffee beans and freshly baked pastries fills the air. Mismatched chairs and tables create a charming, homey atmosphere. Sunlight streams in, illuminating dust motes dancing in the air.",
+      "image": null
+    },
+    {
+      "id": 2,
+      "title": "Oakhaven Pier",
+      "location": "Extending out into the Pacific Ocean",
+      "description": "A weathered wooden pier lined with benches and fishing posts. The salty breeze carries the sounds of seagulls and crashing waves. At night, the pier is illuminated by strings of lights, creating a romantic ambiance.",
+      "image": null
+    },
+    {
+      "id": 3,
+      "title": "The Book Nook",
+      "location": "A quaint bookstore on Main Street",
+      "description": "A cozy, dimly lit bookstore filled with floor-to-ceiling shelves overflowing with books of all genres. The scent of old paper and leather permeates the air. Soft music plays in the background, creating a peaceful atmosphere.",
+      "image": null
+    },
+    {
+      "id": 4,
+      "title": "Oakhaven High School Auditorium",
+      "location": "The local high school's multi-purpose auditorium",
+      "description": "A classic auditorium with red velvet seats and a large stage. The space often serves as a community hall for small town events. The stage is currently being prepped for a school play.",
+      "image": null
+    },
+    {
+      "id": 5,
+      "title": "The Beach",
+      "location": "The sandy coastline of Oakhaven",
+      "description": "Golden sands stretch as far as the eye can see, meeting the turquoise waters of the Pacific Ocean. The sound of crashing waves and seabirds fill the air. A perfect spot for sunset walks and quiet contemplation.",
+      "image": null
+    }
+  ],
+  "main_characters": [
+    {
+      "id": 1,
+      "first_name": "Ren",
+      "last_name": "Tanaka",
+      "species": "Human",
+      "age": "17",
+      "gender": "Male",
+      "role": "Protagonist, Cafe Lumina part-time worker",
+      "background": "A shy and introverted high school student who moved to Oakhaven after his parents' divorce. He's struggling to find his place and express his feelings.",
+      "place_of_birth": "Tokyo, Japan",
+      "physical_appearance": [
+        "Short, messy black hair",
+        "Brown eyes",
+        "Slightly built",
+        "Often wears oversized sweaters"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 2,
+      "first_name": "Aiko",
+      "last_name": "Yamamoto",
+      "species": "Human",
+      "age": "17",
+      "gender": "Female",
+      "role": "Childhood friend, aspiring artist",
+      "background": "Ren's childhood friend, a bubbly and outgoing artist who dreams of showcasing her art. She\u2019s always been supportive of Ren, but harbors secret feelings for him.",
+      "place_of_birth": "Oakhaven, California",
+      "physical_appearance": [
+        "Long, flowing brown hair",
+        "Bright green eyes",
+        "Often wears colorful and expressive clothing",
+        "Always has paint on her hands"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 3,
+      "first_name": "Haruki",
+      "last_name": "Sato",
+      "species": "Human",
+      "age": "18",
+      "gender": "Male",
+      "role": "Rival, Popular student and aspiring musician",
+      "background": "A popular and confident student at Oakhaven High. He's a talented musician and is used to getting what he wants. He initially comes off as arrogant, but has a hidden vulnerability.",
+      "place_of_birth": "Los Angeles, California",
+      "physical_appearance": [
+        "Well-groomed blonde hair",
+        "Blue eyes",
+        "Athletic build",
+        "Always carries a guitar case"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 4,
+      "first_name": "Sakura",
+      "last_name": "Kimura",
+      "species": "Human",
+      "age": "25",
+      "gender": "Female",
+      "role": "Cafe Owner, Mentor figure",
+      "background": "The kind and understanding owner of Cafe Lumina. She provides a safe and welcoming space for everyone. She acts as a mentor figure to Ren and offers him advice on life and love.",
+      "place_of_birth": "Kyoto, Japan",
+      "physical_appearance": [
+        "Elegant black hair styled in a bun",
+        "Warm brown eyes",
+        "Always wears a kimono-inspired apron",
+        "Possesses a calming aura"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 5,
+      "first_name": "Emi",
+      "last_name": "Nakamura",
+      "species": "Human",
+      "age": "16",
+      "gender": "Female",
+      "role": "Supporting Character, Ren's classmate",
+      "background": "A quirky and energetic classmate of Ren's. She's known for her love of all things cute and her tendency to get involved in everyone's business. She unintentionally ends up playing matchmaker.",
+      "place_of_birth": "Oakhaven, California",
+      "physical_appearance": [
+        "Bright pink hair with multiple accessories",
+        "Large, expressive eyes",
+        "Always wears trendy and eye-catching outfits",
+        "Carries a plushie key chain"
+      ],
+      "image": null,
+      "original_image": null
+    }
+  ],
+  "synopsis": "Ren Tanaka, a shy and introverted high school student, moves to the cozy coastal town of Oakhaven after his parents' divorce. He starts working at Cafe Lumina, where he slowly begins to come out of his shell. As he navigates the challenges of his new life, Ren finds himself caught in a love triangle between his childhood friend, Aiko, who has always been there for him, and Haruki, a popular musician who unexpectedly takes an interest in him. With the help of Sakura, the cafe owner, and Emi, his energetic classmate, Ren must learn to embrace his true self and make a choice that will shape his future.",
+  "chapter_synopses": [
+    {
+      "chapter": 1,
+      "synopsis": "Ren arrives in Oakhaven and starts his job at Cafe Lumina. He reconnects with Aiko and begins to settle into his new life. He is introduced to the quirky and energetic Emi. Tensions begin to build between Ren and Haruki.",
+      "character_ids": [
+        1,
+        2,
+        4,
+        5,
+        3
+      ],
+      "scene_ids": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "chapter": 2,
+      "synopsis": "Ren spends more time with both Aiko and Haruki, learning about their dreams and struggles. Haruki begins a school band to compete in an upcoming music competition. He invites Ren to join him. Emi tries to give Ren advice on his love life.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "scene_ids": [
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "chapter": 3,
+      "synopsis": "Ren must make a difficult decision about his future and his relationships. The music competition arrives. Ren's feelings for Aiko and Haruki come to a head. He learns to embrace his true self. ",
+      "character_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "scene_ids": [
+        1,
+        4,
+        5
+      ]
+    }
+  ],
+  "beginning": "The train screeched to a halt, its brakes whining as it pulled into Oakhaven station. Ren clutched his worn backpack, the worn fabric familiar and comforting. Stepping onto the platform, he inhaled deeply, the salty air a stark contrast to the polluted atmosphere of Tokyo. A mix of excitement and apprehension swirled within him. This was it \u2013 his new life.",
+  "endings": [
+    {
+      "id": 1,
+      "ending": "Ren confesses his feelings to Aiko, and they begin a loving relationship, supporting each other's dreams. Ren continues to work at Cafe Lumina, finding fulfillment in his newfound confidence."
+    },
+    {
+      "id": 2,
+      "ending": "Ren and Haruki realize their connection goes beyond friendship and embrace their feelings for each other. Ren joins Haruki's band, pursuing his passion for music alongside his newfound love."
+    },
+    {
+      "id": 3,
+      "ending": "Ren realizes he needs to focus on himself before entering a relationship. He chooses to remain friends with both Aiko and Haruki, dedicating himself to his personal growth and artistic pursuits, inspired by their passions."
+    }
+  ],
+  "generated_by": "gemini-2.0-flash",
+  "approach": "proposed"
+},
+{
+  "id": "b89c8861-edca-11ef-a3ae-010101010000",
+  "title": "Sakura Bloom Rhapsody",
+  "genre": "Japanese Visual Novel",
+  "themes": [
+    "Romance",
+    "Comedy",
+    "Drama"
+  ],
+  "main_scenes": [
+    {
+      "id": 1,
+      "title": "Sakura High Rooftop",
+      "location": "Sakura High School",
+      "description": "The school's rooftop, adorned with cherry blossom trees. A quiet, peaceful spot with a panoramic view of the city, often used for lunch breaks or personal reflection.",
+      "image": null
+    },
+    {
+      "id": 2,
+      "title": "Cafe Lumiere",
+      "location": "Downtown Sakura City",
+      "description": "A cozy, brightly lit cafe known for its delicious pastries and fragrant coffee. A popular hangout for students after school.",
+      "image": null
+    },
+    {
+      "id": 3,
+      "title": "Summer Festival Grounds",
+      "location": "Sakura Riverbank",
+      "description": "Bustling with activity during the annual summer festival. Lanterns illuminate the night sky, and the air is filled with the sounds of music and laughter.",
+      "image": null
+    },
+    {
+      "id": 4,
+      "title": "Amane Family Home",
+      "location": "Residential area of Sakura City",
+      "description": "A traditional Japanese house with a small garden. A warm and inviting place, filled with the scent of home-cooked meals.",
+      "image": null
+    },
+    {
+      "id": 5,
+      "title": "Hanabi Viewing Platform",
+      "location": "Overlooking Sakura River",
+      "description": "A large, tiered platform specifically built for viewing the annual summer fireworks display. Offers an unobstructed view of the spectacular show.",
+      "image": null
+    }
+  ],
+  "main_characters": [
+    {
+      "id": 1,
+      "first_name": "Kenji",
+      "last_name": "Amane",
+      "species": "Human",
+      "age": "17",
+      "gender": "Male",
+      "role": "Protagonist",
+      "background": "A generally kind and somewhat ordinary high school student. He lives with his mother and grandmother, helping out around the house. He's not particularly outgoing but enjoys spending time with his close friends.",
+      "place_of_birth": "Sakura City",
+      "physical_appearance": [
+        "Average height and build",
+        "Short, messy brown hair",
+        "Kind brown eyes",
+        "Often wears a simple school uniform"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 2,
+      "first_name": "Sakura",
+      "last_name": "Fujiwara",
+      "species": "Human",
+      "age": "17",
+      "gender": "Female",
+      "role": "Main Love Interest 1",
+      "background": "A popular and cheerful girl known for her infectious smile. She excels academically and is involved in various school clubs. She's always willing to lend a helping hand, but hides a subtle vulnerability.",
+      "place_of_birth": "Kyoto",
+      "physical_appearance": [
+        "Long, flowing black hair",
+        "Bright, sparkling blue eyes",
+        "Always wears a ribbon in her hair",
+        "Graceful and elegant demeanor"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 3,
+      "first_name": "Hana",
+      "last_name": "Tanaka",
+      "species": "Human",
+      "age": "16",
+      "gender": "Female",
+      "role": "Main Love Interest 2",
+      "background": "Kenji's childhood friend, tomboyish and energetic. She's fiercely loyal and always looks out for Kenji, often teasing him affectionately. She dreams of becoming a professional athlete.",
+      "place_of_birth": "Sakura City",
+      "physical_appearance": [
+        "Short, spiky brown hair",
+        "Determined green eyes",
+        "Athletic build",
+        "Usually wears comfortable, casual clothing"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 4,
+      "first_name": "Ren",
+      "last_name": "Sato",
+      "species": "Human",
+      "age": "18",
+      "gender": "Male",
+      "role": "Rival/Friend",
+      "background": "A talented musician and Kenji's rival in academics. He's initially portrayed as aloof and distant but gradually reveals a hidden sensitive side.",
+      "place_of_birth": "Tokyo",
+      "physical_appearance": [
+        "Tall and slender",
+        "Stylish silver hair",
+        "Sharp grey eyes",
+        "Often seen with headphones around his neck"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 5,
+      "first_name": "Yumi",
+      "last_name": "Yamamoto",
+      "species": "Human",
+      "age": "17",
+      "gender": "Female",
+      "role": "Supporting Character",
+      "background": "A quiet and artistic girl in Kenji's class. She is talented at painting and drawing, and is very shy. She is very observant of the people around her.",
+      "place_of_birth": "Sakura City",
+      "physical_appearance": [
+        "Shoulder-length brown hair",
+        "Large, expressive brown eyes",
+        "Often carries a sketchbook",
+        "Wears glasses"
+      ],
+      "image": null,
+      "original_image": null
+    }
+  ],
+  "synopsis": "Kenji Amane, a seemingly ordinary high school student, finds his life changing when he encounters two captivating girls: Sakura Fujiwara, the school's popular idol, and Hana Tanaka, his energetic childhood friend. As he navigates the complexities of friendship, romance, and self-discovery, Kenji must make choices that will shape his future and determine which of the girls will capture his heart. Amidst the backdrop of Sakura City's vibrant festivals and everyday life, Kenji will uncover hidden secrets and learn the true meaning of love and connection.",
+  "chapter_synopses": [
+    {
+      "chapter": 1,
+      "synopsis": "Kenji's ordinary life takes an unexpected turn when he bumps into Sakura, leading to an awkward yet intriguing encounter. Meanwhile, Hana's playful teasing hints at a deeper affection. Kenji is drawn into the world of Sakura's extracurricular activities, finding himself spending more time with her. He also spends time with Hana as they prepare for a local festival.",
+      "character_ids": [
+        1,
+        2,
+        3
+      ],
+      "scene_ids": [
+        1,
+        2
+      ]
+    },
+    {
+      "chapter": 2,
+      "synopsis": "As the summer festival approaches, Kenji finds himself torn between Sakura and Hana. Ren enters the picture, adding complexity to Kenji's relationships and causing him to question his feelings. Kenji spends time with each girl, attending the summer festival, and watching the fireworks with them. He struggles with jealousy when he sees them with Ren.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "scene_ids": [
+        3,
+        5
+      ]
+    },
+    {
+      "chapter": 3,
+      "synopsis": "Confronted with his own emotions, Kenji must make a crucial decision about his future and his relationship with Sakura and Hana. A heartfelt confession is made, and a choice is made. Regardless of the choice, Kenji learns valuable lessons about love, friendship, and personal growth, facing both the joy and heartbreak that come with them.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "scene_ids": [
+        4
+      ]
+    }
+  ],
+  "beginning": "The morning sun filtered through the curtains, waking Kenji with its gentle warmth. Another ordinary day at Sakura High, he thought, stifling a yawn. Little did he know, this day would be anything but ordinary.",
+  "endings": [
+    {
+      "id": 1,
+      "ending": "Kenji confessed his feelings to Sakura under the blooming cherry blossoms on the school rooftop. They shared a tender moment, sealing their love with a kiss as the petals danced around them, promising a future filled with happiness and shared dreams."
+    },
+    {
+      "id": 2,
+      "ending": "Kenji realized his feelings for Hana were stronger than he initially believed. He confessed his love to her during the summer festival, and she playfully punched his arm before pulling him into a warm embrace, their laughter echoing through the night as they walked together, hand in hand, beneath the fireworks."
+    },
+    {
+      "id": 3,
+      "ending": "Kenji realized he was not yet ready for a romantic relationship. He instead chooses to focus on his studies and strengthen his friendships, finding fulfillment in personal growth and the support of his friends, looking forward to what the future holds for him as he embraces new experiences and challenges."
+    }
+  ],
+  "generated_by": "gemini-2.0-flash-001",
+  "approach": "proposed"
+},
+{
+  "id": "5cc4b4bc-ef26-11ef-8b65-00155d51bbb8",
+  "title": "Chronoscape Legacy",
+  "genre": "visual novel",
+  "themes": [
+    "adventure",
+    "high-fantasy",
+    "science fiction"
+  ],
+  "main_scenes": [
+    {
+      "id": 1,
+      "title": "The Obsidian Archives",
+      "location": "A vast, ancient library housed within a floating obsidian fortress in the Aethel Realm",
+      "description": "Towering shelves filled with forbidden texts and ancient artifacts line the walls, illuminated by ethereal blue flames. Whispering echoes resonate throughout the silent halls, hinting at forgotten knowledge and long-lost secrets. A large circular dais sits at the center of the room, pulsating with temporal energy.",
+      "image": null
+    },
+    {
+      "id": 2,
+      "title": "Neon City Zenith",
+      "location": "The capital city of the technologically advanced Cygnus Sector",
+      "description": "A sprawling metropolis of towering skyscrapers adorned with vibrant holographic advertisements. Flying vehicles zip through the neon-lit skyways, while crowds of augmented humans and robotic citizens throng the bustling streets. The air crackles with energy and the constant hum of advanced technology.",
+      "image": null
+    },
+    {
+      "id": 3,
+      "title": "The Emerald Glades",
+      "location": "A secluded valley in the heart of the Sylvan Kingdom",
+      "description": "Sunlight filters through the canopy of towering emerald trees, illuminating a lush landscape teeming with vibrant flora and fauna. Crystal-clear streams meander through the glades, and the air is filled with the sweet scent of wildflowers. Ancient stone ruins hint at a forgotten civilization that once thrived in this idyllic paradise.",
+      "image": null
+    },
+    {
+      "id": 4,
+      "title": "Temporal Nexus Core",
+      "location": "A hidden chamber deep beneath Neon City Zenith",
+      "description": "A complex network of interconnected consoles and shimmering energy conduits fills the room. The air thrums with raw temporal power, and holographic projections display intricate timelines and paradoxical anomalies. The Nexus is the source of Chronoscape's temporal abilities, and its stability is crucial for the galaxy's survival.",
+      "image": null
+    },
+    {
+      "id": 5,
+      "title": "The Shattered Wastelands",
+      "location": "A desolate, barren landscape ravaged by a temporal storm",
+      "description": "Twisted remnants of buildings and shattered fragments of technology litter the desolate plains. The sky is a swirling vortex of chaotic energy, and the air is thick with radiation. Strange, mutated creatures roam the wastelands, warped by the temporal distortions.",
+      "image": null
+    }
+  ],
+  "main_characters": [
+    {
+      "id": 1,
+      "first_name": "Anya",
+      "last_name": "Volkov",
+      "species": "Human",
+      "age": 24,
+      "gender": "Female",
+      "role": "Protagonist, Chronoscape Heir",
+      "background": "Anya is the last descendant of the Chronomasters, an ancient order tasked with safeguarding the Temporal Nexus. She grew up unaware of her lineage, living a normal life until strange temporal anomalies began to manifest around her.",
+      "place_of_birth": "Neon City Zenith",
+      "physical_appearance": [
+        "Shoulder-length raven hair",
+        "Piercing blue eyes",
+        "Athletic build",
+        "Wears practical, adaptable clothing"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 2,
+      "first_name": "Kaelen",
+      "last_name": "Shadowwalker",
+      "species": "Elf",
+      "age": "Appears 20, actual age unknown",
+      "gender": "Male",
+      "role": "Anya's Mentor",
+      "background": "A mysterious elf from the Sylvan Kingdom, Kaelen has secretly watched over Anya since she was a child. He possesses vast knowledge of temporal magic and serves as her guide and protector.",
+      "place_of_birth": "The Sylvan Kingdom",
+      "physical_appearance": [
+        "Long, silver hair",
+        "Emerald green eyes",
+        "Lean and agile physique",
+        "Wears dark, flowing robes"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 3,
+      "first_name": "Jax",
+      "last_name": "Ryker",
+      "species": "Cyborg",
+      "age": 30,
+      "gender": "Male",
+      "role": "Anya's Ally, Tech Expert",
+      "background": "A former engineer from Neon City Zenith, Jax lost most of his body in an accident and was rebuilt with cybernetic enhancements. He is a skilled hacker and mechanic, providing Anya with invaluable technical support.",
+      "place_of_birth": "Neon City Zenith",
+      "physical_appearance": [
+        "Partially robotic body",
+        "Cybernetic eye implants",
+        "Short, cropped brown hair",
+        "Wears a mechanic's jumpsuit"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 4,
+      "first_name": "Seraphina",
+      "last_name": "Aethelred",
+      "species": "Celestial",
+      "age": "Appears 25, actual age immeasurable",
+      "gender": "Female",
+      "role": "Guardian of the Obsidian Archives",
+      "background": "A celestial being who has guarded the Obsidian Archives for millennia. Seraphina is a wise and powerful entity, but she is bound by ancient oaths and cannot directly interfere with the affairs of mortals unless the Archives are threatened.",
+      "place_of_birth": "The Aethel Realm",
+      "physical_appearance": [
+        "Radiant golden hair",
+        "Shimmering wings",
+        "Ethereal beauty",
+        "Wears ornate, flowing robes"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 5,
+      "first_name": "Chronos",
+      "last_name": null,
+      "species": "Unknown",
+      "age": "Ageless",
+      "gender": "Genderless",
+      "role": "Antagonist, Embodiment of Temporal Chaos",
+      "background": "A mysterious entity seeking to unravel the fabric of time and plunge the universe into chaos. Chronos manipulates events from the shadows, orchestrating temporal anomalies and corrupting those who wield temporal power.",
+      "place_of_birth": "Outside of Time",
+      "physical_appearance": [
+        "Constantly shifting form",
+        "Distorted voice",
+        "Emits a sense of unease and dread",
+        "Often appears as a shadowy figure surrounded by temporal distortions"
+      ],
+      "image": null,
+      "original_image": null
+    }
+  ],
+  "synopsis": "Anya Volkov, a seemingly ordinary woman from Neon City Zenith, discovers she is the last descendant of the Chronomasters, an ancient order tasked with safeguarding the Temporal Nexus, a device that maintains the stability of time itself. When temporal anomalies begin to threaten the fabric of reality, Anya must embark on a perilous journey through different realms and timelines to master her latent abilities, gather allies, and confront Chronos, a mysterious entity seeking to unravel time and plunge the universe into chaos. Her choices will determine the fate of the galaxy.",
+  "chapter_synopses": [
+    {
+      "chapter": 1,
+      "synopsis": "Anya's normal life is shattered when she experiences strange temporal distortions. Kaelen Shadowwalker reveals her lineage as a Chronomaster and warns her of the growing temporal threat. They travel to the Obsidian Archives in the Aethel Realm, seeking knowledge and guidance from Seraphina.",
+      "character_ids": [
+        1,
+        2,
+        4
+      ],
+      "scene_ids": [
+        1
+      ]
+    },
+    {
+      "chapter": 2,
+      "synopsis": "Anya and Kaelen return to Neon City Zenith, where they encounter Jax Ryker, a cyborg who becomes their ally. They delve into the city's underbelly to uncover the source of the temporal anomalies, discovering Chronos's influence. Anya begins training to control her temporal powers.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "scene_ids": [
+        2,
+        4
+      ]
+    },
+    {
+      "chapter": 3,
+      "synopsis": "Anya confronts Chronos in the Temporal Nexus Core. She must make a crucial decision that will either restore balance to time or lead to the universe's destruction. Depending on her choices, the ending varies drastically, ranging from victory and restoration to utter chaos and despair.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "scene_ids": [
+        4,
+        5
+      ]
+    }
+  ],
+  "beginning": "The clock on Anya's apartment wall flickered erratically, skipping minutes, then suddenly jumping back an hour. Anya frowned, tapping the glass. \"Stupid thing's broken again.\" Outside, the usual hum of Neon City Zenith seemed\u2026 off. The flying cars were jittery, almost phasing in and out of existence. Then, the world warped around her, the street outside her window dissolving into a hazy, ancient forest.",
+  "endings": [
+    {
+      "id": 1,
+      "ending": "Anya successfully harnesses the power of the Temporal Nexus, rewriting the timeline to erase Chronos's influence and restore balance to the universe. She becomes the new guardian of time, ensuring its stability for generations to come."
+    },
+    {
+      "id": 2,
+      "ending": "Anya fails to control the Temporal Nexus, and Chronos seizes control, plunging the universe into a chaotic maelstrom of distorted timelines. The realms are merged and twisted, and the surviving characters are left to wander a fractured reality."
+    },
+    {
+      "id": 3,
+      "ending": "Anya makes a sacrifice, severing the Temporal Nexus's connection to reality to prevent Chronos from exploiting it. Time becomes linear and fixed, losing its fluidity and potential for change. While the universe is saved from destruction, the possibilities of the future are forever limited."
+    }
+  ],
+  "generated_by": "gemini-2.0-flash-001",
+  "approach": "proposed"
+},
+{
+  "id": "59739f36-efa8-11ef-a581-00155d51bbb8",
+  "title": "Blooming Bonds",
+  "genre": "visual novel",
+  "themes": [
+    "romance",
+    "comedy",
+    "drama"
+  ],
+  "main_scenes": [
+    {
+      "id": 1,
+      "title": "Cherry Blossom Cafe",
+      "location": "A bustling cafe near the university.",
+      "description": "A cozy cafe adorned with cherry blossom decorations, known for its delicious pastries and vibrant atmosphere. The aroma of coffee beans and sweet treats fills the air, creating a comforting and inviting space.",
+      "image": null
+    },
+    {
+      "id": 2,
+      "title": "University Library",
+      "location": "The main library of the university.",
+      "description": "A vast library filled with towering shelves of books. Students quietly study at desks bathed in soft light from the large windows. The air is thick with the scent of old paper and the quiet rustle of turning pages.",
+      "image": null
+    },
+    {
+      "id": 3,
+      "title": "Rooftop Garden",
+      "location": "The rooftop of the university's science building.",
+      "description": "A hidden gem, this rooftop garden offers a panoramic view of the city. Lush greenery and colorful flowers create a peaceful oasis above the bustling campus.",
+      "image": null
+    },
+    {
+      "id": 4,
+      "title": "Karaoke Bar",
+      "location": "A lively karaoke bar in the city.",
+      "description": "A vibrant and noisy bar filled with flashing lights and the enthusiastic (and sometimes off-key) singing of patrons. The air is filled with the smell of alcohol and the infectious energy of a night out.",
+      "image": null
+    },
+    {
+      "id": 5,
+      "title": "Apartment Balcony",
+      "location": "The protagonist's apartment balcony.",
+      "description": "A small balcony overlooking the city, decorated with potted plants and fairy lights. A perfect place for quiet reflection and late-night conversations.",
+      "image": null
+    }
+  ],
+  "main_characters": [
+    {
+      "id": 1,
+      "first_name": "Akihiro",
+      "last_name": "Tanaka",
+      "species": "Human",
+      "age": 20,
+      "gender": "Male",
+      "role": "Protagonist",
+      "background": "Akihiro is a diligent and somewhat introverted university student majoring in literature. He works part-time at the Cherry Blossom Cafe to support himself. He's always been focused on his studies but longs for more excitement and connection in his life.",
+      "place_of_birth": "Kyoto",
+      "physical_appearance": [
+        "Short, messy black hair",
+        "Kind brown eyes",
+        "Usually wears comfortable, casual clothes",
+        "Slightly built"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 2,
+      "first_name": "Sakura",
+      "last_name": "Yamamoto",
+      "species": "Human",
+      "age": 21,
+      "gender": "Female",
+      "role": "Love Interest",
+      "background": "Sakura is a cheerful and outgoing art student. She's known for her infectious laughter and her talent for painting. She dreams of becoming a famous artist and traveling the world.",
+      "place_of_birth": "Tokyo",
+      "physical_appearance": [
+        "Long, flowing pink hair",
+        "Bright green eyes",
+        "Often wears colorful and artistic clothing",
+        "Always has a smile on her face"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 3,
+      "first_name": "Kenji",
+      "last_name": "Sato",
+      "species": "Human",
+      "age": 22,
+      "gender": "Male",
+      "role": "Love Interest",
+      "background": "Kenji is a charismatic and athletic engineering student. He's the star of the university's basketball team and popular with everyone. However, he struggles with the pressure to live up to expectations.",
+      "place_of_birth": "Osaka",
+      "physical_appearance": [
+        "Short, spiky brown hair",
+        "Intense blue eyes",
+        "Always wears athletic clothing",
+        "Tall and muscular build"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 4,
+      "first_name": "Yumi",
+      "last_name": "Nakamura",
+      "species": "Human",
+      "age": 20,
+      "gender": "Female",
+      "role": "Best Friend",
+      "background": "Yumi is Akihiro's childhood friend. She is a reliable friend, studying to be a nurse. She is supportive and often gives him advice.",
+      "place_of_birth": "Kyoto",
+      "physical_appearance": [
+        "Shoulder-length brown hair",
+        "Warm hazel eyes",
+        "Typically wears practical and comfortable clothes",
+        "Caring smile"
+      ],
+      "image": null,
+      "original_image": null
+    },
+    {
+      "id": 5,
+      "first_name": "Haruki",
+      "last_name": "Kobayashi",
+      "species": "Human",
+      "age": 21,
+      "gender": "Male",
+      "role": "Rival/Friend",
+      "background": "Haruki is a competitive and ambitious student who is always trying to one-up Akihiro in academics and other areas. Deep down, he admires Akihiro's dedication and secretly craves his friendship.",
+      "place_of_birth": "Nagoya",
+      "physical_appearance": [
+        "Neat black hair",
+        "Sharp gray eyes",
+        "Usually wears formal, preppy clothing",
+        "Confident demeanor"
+      ],
+      "image": null,
+      "original_image": null
+    }
+  ],
+  "synopsis": "Akihiro Tanaka, a university student working at the Cherry Blossom Cafe, finds his mundane life turned upside down when he encounters Sakura Yamamoto, a vibrant art student, and Kenji Sato, the university's star basketball player. As Akihiro navigates his studies, his part-time job, and his growing feelings for Sakura and Kenji, he must balance his personal desires with the expectations of those around him, leading to heartwarming moments, comedic mishaps, and dramatic revelations.",
+  "chapter_synopses": [
+    {
+      "chapter": 1,
+      "synopsis": "Akihiro starts his usual day at the Cherry Blossom Cafe where he first encounters Sakura. Later, he meets Kenji in class. He is immediately drawn to both of them and starts to see his life slowly changing.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "scene_ids": [
+        1,
+        2
+      ]
+    },
+    {
+      "chapter": 2,
+      "synopsis": "Akihiro spends more time with both Sakura and Kenji, discovering their passions and struggles. He finds himself torn between his feelings for both of them and seeks advice from Yumi. Haruki sees Akihiro's new connections, increasing his need to beat Akihiro.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "scene_ids": [
+        3,
+        4
+      ]
+    },
+    {
+      "chapter": 3,
+      "synopsis": "Akihiro must make a decision about his relationships with Sakura and Kenji. He also needs to address his rivalry with Haruki. The consequences of his choice will shape his future.",
+      "character_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "scene_ids": [
+        5
+      ]
+    }
+  ],
+  "beginning": "The aroma of freshly brewed coffee wafted through the air as Akihiro wiped down the counter at the Cherry Blossom Cafe. Another day, another shift, another chapter of his perfectly ordinary life. Or so he thought. As he glanced up, a whirlwind of pink hair and bright green eyes burst through the door, instantly brightening the cafe and his monotonous routine.",
+  "endings": [
+    {
+      "id": 1,
+      "ending": "Akihiro confesses his feelings to Sakura, and they start dating. He helps her prepare for her art exhibition, and they share a passionate kiss under the cherry blossom trees."
+    },
+    {
+      "id": 2,
+      "ending": "Akihiro confesses his feelings to Kenji, and they begin dating. He attends Kenji's basketball games, cheering him on from the sidelines. They share a quiet moment together on the rooftop garden, watching the sunset."
+    },
+    {
+      "id": 3,
+      "ending": "Akihiro realizes that he's not ready for a relationship. He focuses on his studies and strengthens his friendship with Sakura and Kenji. He makes amends with Haruki, and they become friends. He decides to pursue his own path and find happiness within himself."
+    }
+  ],
+  "generated_by": "gemini-2.0-flash-001",
+  "approach": "proposed"
 }]
