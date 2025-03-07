@@ -5,8 +5,8 @@ import {
 } from "@remix-run/node";
 import { Form, redirect, useLoaderData, useNavigation } from "@remix-run/react";
 import LoadingSpinner from "~/components/LoadingSpinner";
+import getAllStoryData from "~/data/getStoryData";
 import { getFirstStoryChunkId } from "~/db/stories";
-import allStoryData from "~/data/storyData";
 
 type Story = {
   id: string;
@@ -21,6 +21,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({ request }: LoaderFunctionArgs) {
+  const allStoryData = await getAllStoryData();
   return allStoryData;
 }
 
@@ -65,6 +66,8 @@ export default function Index() {
                 <button
                   className="w-full rounded border-2 border-indigo-500 px-4 py-2 text-center text-xl font-bold text-indigo-500 transition-all hover:border-indigo-600 hover:bg-indigo-600 hover:text-white disabled:opacity-50"
                   disabled={isLoading}
+                  title={ "Id: " + story.id + " \n" +
+                    "Themes: " + story.themes.map((theme: string) => " " + theme)}
                 >
                   {isLoading && (
                     <LoadingSpinner
@@ -73,7 +76,7 @@ export default function Index() {
                       color="primary"
                     />
                   )}{" "}
-                  {story.title}
+                  {story.title + " - " + story.generated_by}
                 </button>
               </Form>
             ))}
