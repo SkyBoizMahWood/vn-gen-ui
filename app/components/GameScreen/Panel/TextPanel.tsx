@@ -27,14 +27,14 @@ export default function TextPanel({
   return (
     <button
       onClick={onNext}
-      className={`${haveChoicesShown && "hidden md:block"} group absolute bottom-0 left-0 h-2/5 w-full md:h-1/4 ${isDisableClicked ? "cursor-not-allowed" : "cursor-pointer"}`}
+      className={`${haveChoicesShown && "hidden md:block"} group absolute bottom-0 left-0 h-3/5 w-full md:h-1/3 ${isDisableClicked ? "cursor-not-allowed" : "cursor-pointer"}`}
       disabled={isDisableClicked}
     >
       {isLoading && (
         <LoadingSpinner size="md" position="absolute" color="primary" />
       )}
       <div
-        className={`flex h-full w-full flex-col items-center gap-4 overflow-auto bg-black-80 px-8 py-4 text-start transition-all md:flex-row md:gap-12 md:px-16 md:py-8 2xl:px-48 ${
+        className={`flex h-full w-full flex-col items-center gap-6 overflow-auto bg-black-80 px-10 py-6 text-start transition-all md:flex-row md:gap-14 md:px-20 md:py-10 2xl:px-48 ${
           isNarrator && "justify-center"
         } ${!isDisableClicked && "hover:bg-black-75"}`}
       >
@@ -44,7 +44,7 @@ export default function TextPanel({
             characterUrl={characterUrl}
           />
         )}
-        <div className="flex flex-col items-center justify-center gap-4 md:basis-4/5 md:items-start">
+        <div className="flex flex-col items-center justify-center gap-6 md:basis-4/5 md:items-start">
           {!isNarrator && <CharacterName characterName={characterName} />}
           <DialogBox dialog={dialog} isNarrator={isNarrator} />
         </div>
