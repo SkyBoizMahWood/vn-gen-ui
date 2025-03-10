@@ -39,6 +39,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function Index() {
   const stories = useLoaderData<typeof loader>();
+  stories.sort((a,b) => (a.generated_by > b.generated_by) ? 1 : ((b.generated_by > a.generated_by) ? -1 : 0));
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
 
