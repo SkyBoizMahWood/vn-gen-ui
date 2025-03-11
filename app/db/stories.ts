@@ -13,11 +13,12 @@ import { SceneData } from "~/models/story/SceneData";
 import { StoryChoice } from "~/models/story/StoryChoice";
 import { StoryChunk } from "~/models/StoryChunk";
 import { StoryData } from "~/models/StoryData";
-import allStoryData from '~/data/storyData'
 import { getSession } from "~/db/neo4j";
 import { z } from "zod";
+import getAllStoryData from "~/data/getStoryData";
 
-export const getStoryDataById = (storyId: string) => {
+export const getStoryDataById = async (storyId: string) => {
+  const allStoryData = await getAllStoryData();
   const storyData = allStoryData.find((story) => story.id === storyId);
 
   if (!storyData) {

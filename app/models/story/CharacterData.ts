@@ -66,6 +66,13 @@ export class CharacterData {
   }
 
   static fromJson(jsonObj: z.infer<typeof CharacterDataJson>): CharacterData {
+    if(typeof jsonObj.physical_appearance === 'string') {
+      jsonObj = {
+        ...jsonObj,
+        physical_appearance: [jsonObj.physical_appearance]
+      };
+    }
+    
     const parsed = CharacterDataJson.parse(jsonObj);
 
     return new CharacterData(
