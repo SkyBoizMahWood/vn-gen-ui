@@ -50,7 +50,7 @@ export default function GameScreen({
     <div className="relative h-screen w-screen">
       <img
         className="brightness-80 bg-slate relative h-full w-full border-none object-cover"
-        src={sceneUrl}
+        src={"data:image/png;base64,"+sceneUrl}
         alt={sceneTitle ?? "No image available."}
       />
       {showChoice && choices.length > 0 && <ChoicePanel choices={choices} />}
