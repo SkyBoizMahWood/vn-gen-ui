@@ -3,15 +3,10 @@ import {
   LoaderFunctionArgs,
   type MetaFunction,
 } from "@remix-run/node";
-import { Form, redirect, useLoaderData, useNavigation } from "@remix-run/react";
-import LoadingSpinner from "~/components/LoadingSpinner";
+import { redirect, useLoaderData, useNavigation } from "@remix-run/react";
+import StoryCard from "~/components/StoryCard";
 import getAllStoryData from "~/data/getStoryData";
 import { getFirstStoryChunkId } from "~/db/stories";
-
-type Story = {
-  id: string;
-  title: string;
-};
 
 export const meta: MetaFunction = () => {
   return [
@@ -39,51 +34,37 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function Index() {
   const stories = useLoaderData<typeof loader>();
-  stories.sort((a,b) => (a.generated_by > b.generated_by) ? 1 : ((b.generated_by > a.generated_by) ? -1 : 0));
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
 
-  return (
-    <div className="mx-auto h-screen w-screen text-slate-950 lg:w-4/5 lg:px-8 dark:text-slate-100">
-      {/* Fixed header */}
-      <div className="fixed left-0 right-0 top-0 z-10 bg-white py-4 dark:bg-slate-900">
-        <h1 className="text-center text-3xl font-bold md:text-4xl">
-          (☞ﾟヮﾟ)☞ Auto VN Gen ☜(ﾟヮﾟ☜)
-        </h1>
-      </div>
+  // Sort stories by generated_by
+  stories.sort((a, b) => 
+    a.generated_by > b.generated_by ? 1 : b.generated_by > a.generated_by ? -1 : 0
+  );
 
-      {/* Scrollable content area */}
-      <div className="h-full px-16 pt-24">
-        <div className="flex h-full w-full flex-col items-center">
-          <div className="w-full max-w-2xl space-y-4">
-            {stories.map((story) => (
-              <Form
-                key={story.id}
-                action="?index"
-                method="POST"
-                className="w-full"
-              >
-                <input type="hidden" name="storyId" value={story.id} />
-                <button
-                  className="w-full rounded border-2 border-indigo-500 px-4 py-2 text-center text-xl font-bold text-indigo-500 transition-all hover:border-indigo-600 hover:bg-indigo-600 hover:text-white disabled:opacity-50"
-                  disabled={isLoading}
-                  title={ "Id: " + story.id + " \n" +
-                    "Themes: " + story.themes.map((theme: string) => " " + theme)}
-                >
-                  {isLoading && (
-                    <LoadingSpinner
-                      size="sm"
-                      position="inline"
-                      color="primary"
-                    />
-                  )}{" "}
-                  {story.title + " - " + story.generated_by}
-                </button>
-              </Form>
-            ))}
-          </div>
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+      {/* Header Section */}
+      <header className="fixed left-0 right-0 top-0 z-10 bg-white shadow-md dark:bg-slate-900">
+        <div className="mx-auto max-w-7xl px-4 py-4">
+          <h1 className="text-center text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+            (☞ﾟヮﾟ)☞ Auto VN Gen ☜(ﾟヮﾟ☜)
+          </h1>
         </div>
-      </div>
+      </header>
+
+      {/* Main Content Section */}
+      <main className="mx-auto max-w-7xl px-4 pt-24">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {stories.map((story) => (
+            <StoryCard 
+              key={story.id} 
+              story={story} 
+              isLoading={isLoading} 
+            />
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
