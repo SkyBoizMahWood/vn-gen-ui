@@ -35,7 +35,8 @@ export async function action({ request }: ActionFunctionArgs) {
 export default function Index() {
   const stories = useLoaderData<typeof loader>();
   const navigation = useNavigation();
-  const isLoading = navigation.state === "loading";
+  const formData = navigation.formData;
+  const loadingStoryId = formData?.get("storyId")?.toString();
 
   // Sort stories by generated_by
   stories.sort((a, b) => 
@@ -59,8 +60,8 @@ export default function Index() {
           {stories.map((story) => (
             <StoryCard 
               key={story.id} 
-              story={story} 
-              isLoading={isLoading} 
+              story={story}   
+              isLoading={navigation.state === "loading" && loadingStoryId === story.id} 
             />
           ))}
         </div>
