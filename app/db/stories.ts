@@ -30,12 +30,12 @@ export const getStoryDataById = async (storyId: string) => {
     storyData.title,
     storyData.genre,
     storyData.themes,
-    storyData.main_scenes.map((scene) => SceneData.fromJson(scene)),
-    storyData.main_characters.map((character) => CharacterData.fromJson(character)),
+    storyData.main_scenes.map((scene: any) => SceneData.fromJson(scene)),
+    storyData.main_characters.map((character: any) => CharacterData.fromJson(character as any)),
     storyData.synopsis,
-    storyData.chapter_synopses.map((chapter) => ChapterSynopsis.fromJson(chapter)),
+    storyData.chapter_synopses.map((chapter: any) => ChapterSynopsis.fromJson(chapter as any)),
     storyData.beginning,
-    storyData.endings.map((ending) => EndingData.fromJson(ending)),
+    storyData.endings.map((ending: EndingData) => EndingData.fromJson(ending)),
     storyData.generated_by,
     storyData.approach,
   );
@@ -98,6 +98,7 @@ export const getStoryChunkByChunkId = async (chunkId: string) => {
     }
 
     const chunkResponse = filteredResponses[0].get("chunk").properties;
+    console.log(`chunkResponse: ${chunkResponse}`);
     const stories = z
       .array(StoryNarrativeJson)
       .parse(JSON.parse(chunkResponse.story))
