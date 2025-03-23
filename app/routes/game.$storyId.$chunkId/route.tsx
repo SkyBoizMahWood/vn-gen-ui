@@ -32,7 +32,7 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   const storyData = await getStoryDataById(storyId ?? "");
   const storyChunk = await getStoryChunkByChunkId(chunkId ?? "");
 
-  const narratives = storyChunk.story.toSorted((a, b) => a.id - b.id);
+  const narratives = [...storyChunk.story].sort((a, b) => a.id - b.id);
   const { speakerId, speaker, sceneId, text } = narratives[order];
   const { choices } = storyChunk;
 
