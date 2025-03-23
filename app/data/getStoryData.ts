@@ -1,4 +1,5 @@
 import { getSession } from "~/db/neo4j";
+import { json, type LoaderFunctionArgs } from "@remix-run/node";
 
 export async function fetchStoryData(): Promise<any[]> {
   const session = getSession();
@@ -46,3 +47,12 @@ export default async function getAllStoryData(): Promise<any[]> {
     return [];
   }
 }
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const allStoryData = await getAllStoryData();
+  return json(allStoryData, {
+    headers: {
+      "Cache-Control": "public, max-age=300", // Cache trong 5 phút
+    },
+  });
+};
