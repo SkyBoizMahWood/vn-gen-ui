@@ -38,10 +38,30 @@ export async function fetchStoryData(): Promise<any[]> {
   }
 }
 
-// Default export with empty array fallback
+// Use a global cache object
+declare global {
+  var storyDataCache: { data: any[]; expiry: number } | undefined;
+}
+
+// Initialize the global cache if it doesn't exist
+globalThis.storyDataCache = globalThis.storyDataCache || null;
+
 export default async function getAllStoryData(): Promise<any[]> {
+  const now = Date.now();
+
+  // Check if global cache exists and is still valid
+  if (globalThis.storyDataCache && globalThis.storyDataCache.expiry > now) {
+    return globalThis.storyDataCache.data;
+  }
+
   try {
-    return await fetchStoryData();
+    const data = await fetchStoryData();
+    // Update global cache with new data and set expiry to 5 minutes
+    globalThis.storyDataCache = {
+      data,
+      expiry: now + 5 * 60 * 1000, // 5 minutes in milliseconds
+    };
+    return data;
   } catch (error) {
     console.error("Failed to retrieve story data:", error);
     return [];
