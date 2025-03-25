@@ -15,32 +15,52 @@ import { StoryChunk } from "~/models/StoryChunk";
 import { StoryData } from "~/models/StoryData";
 import { getSession } from "~/db/neo4j";
 import { z } from "zod";
-import getAllStoryData from "~/data/getStoryData";
+
+// Move cachedStoryData to global scope
+globalThis.cachedStoryData = globalThis.cachedStoryData || null;
 
 export const getStoryDataById = async (storyId: string) => {
-  const allStoryData = await getAllStoryData();
-  const storyData = allStoryData.find((story) => story.id === storyId);
-
-  if (!storyData) {
-    throw new Error(`Story with id ${storyId} not found`);
+  if (globalThis.cachedStoryData && globalThis.cachedStoryData.id === storyId) {
+    return globalThis.cachedStoryData;
   }
 
-  const parsedStoryData = new StoryData(
-    storyData.id,
-    storyData.title,
-    storyData.genre,
-    storyData.themes,
-    storyData.main_scenes.map((scene: any) => SceneData.fromJson(scene)),
-    storyData.main_characters.map((character: any) => CharacterData.fromJson(character as any)),
-    storyData.synopsis,
-    storyData.chapter_synopses.map((chapter: any) => ChapterSynopsis.fromJson(chapter as any)),
-    storyData.beginning,
-    storyData.endings.map((ending: EndingData) => EndingData.fromJson(ending)),
-    storyData.generated_by,
-    storyData.approach,
-  );
+  const session = getSession();
+  try {
+    const result = await session.run(
+      "MATCH (storyData:StoryData { id: $storyId }) RETURN storyData",
+      { storyId }
+    );
 
-  return parsedStoryData
+    if (result.records.length === 0) {
+      throw new Error(`Story with id ${storyId} not found`);
+    }
+
+    const storyDataNode = result.records[0].get("storyData");
+    const storyData = storyDataNode.properties;
+
+    const parsedStoryData = new StoryData(
+      storyData.id,
+      storyData.title,
+      storyData.genre,
+      storyData.themes,
+      JSON.parse(storyData.main_scenes).map((scene: any) => SceneData.fromJson(scene)),
+      JSON.parse(storyData.main_characters).map((character: any) => CharacterData.fromJson(character as any)),
+      storyData.synopsis,
+      JSON.parse(storyData.chapter_synopses).map((chapter: any) => ChapterSynopsis.fromJson(chapter as any)),
+      storyData.beginning,
+      JSON.parse(storyData.endings).map((ending: EndingData) => EndingData.fromJson(ending)),
+      storyData.generated_by,
+      storyData.approach,
+    );
+
+    globalThis.cachedStoryData = parsedStoryData; // Cache the parsed story data globally
+    return parsedStoryData;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    session.close();
+  }
 };
 
 type GetStoryChunkByChunkIdResponse = {
