@@ -5,7 +5,7 @@ import {
 } from "@remix-run/node";
 import { redirect, useLoaderData, useNavigation } from "@remix-run/react";
 import StoryCard from "~/components/StoryCard";
-import getAllStoryData from "~/data/getStoryData";
+import { getAllStoryDataWithoutExtraData } from "~/data/getStoryData";
 import { getFirstStoryChunkId } from "~/db/stories";
 
 export const meta: MetaFunction = () => {
@@ -16,7 +16,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  const allStoryData = await getAllStoryData();
+  const allStoryData = await getAllStoryDataWithoutExtraData();
   return allStoryData;
 }
 

@@ -38,6 +38,33 @@ export async function fetchStoryData(): Promise<any[]> {
   }
 }
 
+export async function fetchStoryDataWithoutExtraData(): Promise<any[]> {
+  const session = getSession();
+  try {
+    const result = await session.run(
+      "MATCH (storyData:StoryData) RETURN storyData.id AS id, storyData.title AS title, storyData.genre AS genre, storyData.themes AS themes, storyData.generated_by AS generated_by"
+    );
+
+    const storyDataList = result.records.map((record) => {
+      // Convert Neo4j properties to StoryData object without main_scenes and main_characters
+      return {
+        id: record.get("id"),
+        title: record.get("title"),
+        genre: record.get("genre"),
+        themes: record.get("themes"),
+        generated_by: record.get("generated_by"),
+      };
+    });
+
+    return storyDataList;
+  } catch (error) {
+    console.error("Error fetching story data:", error);
+    return [];
+  } finally {
+    await session.close();
+  }
+}
+
 // Use a global cache object
 declare global {
   var storyDataCache: { data: any[]; expiry: number } | undefined;
@@ -64,6 +91,39 @@ export default async function getAllStoryData(): Promise<any[]> {
     return data;
   } catch (error) {
     console.error("Failed to retrieve story data:", error);
+    return [];
+  }
+}
+
+// Use a global cache object for data without scenes and characters
+declare global {
+  var storyDataCacheWithoutExtraData: { data: any[]; expiry: number } | undefined;
+}
+
+// Initialize the global cache if it doesn't exist
+globalThis.storyDataCacheWithoutExtraData = globalThis.storyDataCacheWithoutExtraData || null;
+
+export async function getAllStoryDataWithoutExtraData(): Promise<any[]> {
+  const now = Date.now();
+
+  // Check if global cache exists and is still valid
+  if (
+    globalThis.storyDataCacheWithoutExtraData &&
+    globalThis.storyDataCacheWithoutExtraData.expiry > now
+  ) {
+    return globalThis.storyDataCacheWithoutExtraData.data;
+  }
+
+  try {
+    const data = await fetchStoryDataWithoutExtraData();
+    // Update global cache with new data and set expiry to 5 minutes
+    globalThis.storyDataCacheWithoutExtraData = {
+      data,
+      expiry: now + 5 * 60 * 1000, // 5 minutes in milliseconds
+    };
+    return data;
+  } catch (error) {
+    console.error("Failed to retrieve story data without scenes and characters:", error);
     return [];
   }
 }
