@@ -7,6 +7,7 @@ import { redirect, useLoaderData, useNavigation } from "@remix-run/react";
 import StoryCard from "~/components/StoryCard";
 import { getAllStoryDataWithoutExtraData } from "~/data/getStoryData";
 import { getFirstStoryChunkId } from "~/db/stories";
+import BackgroundImage from "~/components/BackgroundImage";
 
 export const meta: MetaFunction = () => {
   return [
@@ -44,12 +45,27 @@ export default function Index() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <BackgroundImage imageUrl="/images/background.jpg">
       {/* Header Section */}
-      <header className="fixed left-0 right-0 top-0 z-10 bg-white shadow-md dark:bg-slate-900">
+      <header className="fixed left-0 right-0 top-0 z-10 bg-white/80 backdrop-blur-md shadow-md dark:bg-slate-900/80">
         <div className="mx-auto max-w-7xl px-4 py-4">
-          <h1 className="text-center text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
-            (☞ﾟヮﾟ)☞ Auto VN Gen ☜(ﾟヮﾟ☜)
+          <h1 className="text-center text-3xl font-bold md:text-4xl
+                         text-white
+                         [text-shadow:_0_0_10px_rgba(99,102,241,0.5),
+                                     _0_0_20px_rgba(99,102,241,0.3),
+                                     _0_0_30px_rgba(99,102,241,0.2)]
+                         animate-pulse">
+            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite]">A</span>
+            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_0.2s]">u</span>
+            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_0.4s]">t</span>
+            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_0.6s]">o</span>
+            {" "}
+            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_0.8s]">V</span>
+            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_1s]">N</span>
+            {" "}
+            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_1.2s]">G</span>
+            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_1.4s]">e</span>
+            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_1.6s]">n</span>
           </h1>
         </div>
       </header>
@@ -66,6 +82,6 @@ export default function Index() {
           ))}
         </div>
       </main>
-    </div>
+    </BackgroundImage>
   );
 }
