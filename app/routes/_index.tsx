@@ -39,8 +39,7 @@ export default function Index() {
   const formData = navigation.formData;
   const loadingStoryId = formData?.get("storyId")?.toString();
 
-  // Sort stories by generated_by
-  stories.sort((a, b) => 
+  stories.sort((a, b) =>
     a.generated_by > b.generated_by ? 1 : b.generated_by > a.generated_by ? -1 : 0
   );
 
@@ -55,17 +54,15 @@ export default function Index() {
                                      _0_0_20px_rgba(99,102,241,0.3),
                                      _0_0_30px_rgba(99,102,241,0.2)]
                          animate-pulse">
-            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite]">A</span>
-            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_0.2s]">u</span>
-            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_0.4s]">t</span>
-            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_0.6s]">o</span>
-            {" "}
-            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_0.8s]">V</span>
-            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_1s]">N</span>
-            {" "}
-            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_1.2s]">G</span>
-            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_1.4s]">e</span>
-            <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite_1.6s]">n</span>
+            {["A", "u", "t", "o", " ", "V", "N", " ", "G", "e", "n"].map((letter, index) => (
+              <span
+                key={index}
+                className="inline-block animate-[bounce_1s_ease-in-out_infinite]"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {letter}
+              </span>
+            ))}
           </h1>
         </div>
       </header>
@@ -74,10 +71,10 @@ export default function Index() {
       <main className="mx-auto max-w-7xl px-4 pt-24">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {stories.map((story) => (
-            <StoryCard 
-              key={story.id} 
-              story={story}   
-              isLoading={navigation.state === "loading" && loadingStoryId === story.id} 
+            <StoryCard
+              key={story.id}
+              story={story}
+              isLoading={navigation.state === "loading" && loadingStoryId === story.id}
             />
           ))}
         </div>
