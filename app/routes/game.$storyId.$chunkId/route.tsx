@@ -41,6 +41,7 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   );
   const characterName = character
     ? // eslint-disable-next-line no-irregular-whitespace
+    character.role.toLowerCase().includes("protagonist") ? `${character.firstName} ${character.lastName} (You)` :
       `${character.firstName} ${character.lastName}`
     : speaker || "Unknown";
   const characterUrl = character?.image

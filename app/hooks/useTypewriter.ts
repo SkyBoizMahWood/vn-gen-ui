@@ -39,5 +39,15 @@ export function useTypewriter(text: string | undefined | null, speed: number = 5
     };
   }, [text, speed]);
 
-  return { displayedText, isTypingComplete };
+  const showAllText = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    if (text) {
+      setDisplayedText(text);
+      setIsTypingComplete(true);
+    }
+  };
+
+  return { displayedText, isTypingComplete, showAllText };
 }

@@ -21,6 +21,7 @@ export default function StoryCard({ story, isLoading }: StoryCardProps) {
         className="flex h-full w-full flex-col rounded-lg border-2 border-indigo-500 
                    bg-white p-6 text-left shadow-md transition-all 
                    hover:border-indigo-600 hover:bg-indigo-50 
+                   hover:scale-105
                    disabled:opacity-50 dark:bg-slate-800 
                    dark:hover:bg-slate-700"
         disabled={isLoading}

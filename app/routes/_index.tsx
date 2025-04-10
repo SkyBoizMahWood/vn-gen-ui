@@ -7,6 +7,7 @@ import { redirect, useLoaderData, useNavigation } from "@remix-run/react";
 import StoryCard from "~/components/StoryCard";
 import { getAllStoryDataWithoutExtraData } from "~/data/getStoryData";
 import { getFirstStoryChunkId } from "~/db/stories";
+import BackgroundImage from "~/components/BackgroundImage";
 
 export const meta: MetaFunction = () => {
   return [
@@ -38,18 +39,30 @@ export default function Index() {
   const formData = navigation.formData;
   const loadingStoryId = formData?.get("storyId")?.toString();
 
-  // Sort stories by generated_by
-  stories.sort((a, b) => 
+  stories.sort((a, b) =>
     a.generated_by > b.generated_by ? 1 : b.generated_by > a.generated_by ? -1 : 0
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <BackgroundImage imageUrl="/images/background.jpg">
       {/* Header Section */}
-      <header className="fixed left-0 right-0 top-0 z-10 bg-white shadow-md dark:bg-slate-900">
+      <header className="fixed left-0 right-0 top-0 z-10 bg-white/80 backdrop-blur-md shadow-md dark:bg-slate-900/80">
         <div className="mx-auto max-w-7xl px-4 py-4">
-          <h1 className="text-center text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
-            (☞ﾟヮﾟ)☞ Auto VN Gen ☜(ﾟヮﾟ☜)
+          <h1 className="text-center text-3xl font-bold md:text-4xl
+                         text-white
+                         [text-shadow:_0_0_10px_rgba(99,102,241,0.5),
+                                     _0_0_20px_rgba(99,102,241,0.3),
+                                     _0_0_30px_rgba(99,102,241,0.2)]
+                         animate-pulse">
+            {["A", "u", "t", "o", " ", "V", "N", " ", "G", "e", "n"].map((letter, index) => (
+              <span
+                key={index}
+                className="inline-block animate-[bounce_1s_ease-in-out_infinite]"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {letter}
+              </span>
+            ))}
           </h1>
         </div>
       </header>
@@ -58,14 +71,14 @@ export default function Index() {
       <main className="mx-auto max-w-7xl px-4 pt-24">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {stories.map((story) => (
-            <StoryCard 
-              key={story.id} 
-              story={story}   
-              isLoading={navigation.state === "loading" && loadingStoryId === story.id} 
+            <StoryCard
+              key={story.id}
+              story={story}
+              isLoading={navigation.state === "loading" && loadingStoryId === story.id}
             />
           ))}
         </div>
       </main>
-    </div>
+    </BackgroundImage>
   );
 }
