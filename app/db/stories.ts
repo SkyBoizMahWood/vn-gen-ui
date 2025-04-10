@@ -188,6 +188,7 @@ export const getNextStoryChunkIdByChoiceId = async (
   choiceId: number,
 ) => {
   const getNextStoryChunkIdByChoiceIdQuery = `MATCH (:StoryChunk { id: "${currentChunkId}" })-[b:BRANCHED_TO]->(chunk:StoryChunk) WHERE b.choice CONTAINS '"id": ${choiceId}' RETURN chunk.id LIMIT 1`;
+  const getNextStoryChunkIdByChoiceIdQuery_BACKUP = `MATCH (:StoryChunk { id: "${currentChunkId}" })-[b:BRANCHED_TO]->(chunk:StoryChunk) WHERE b.choice CONTAINS '"id":${choiceId}' RETURN chunk.id LIMIT 1`;
 
   const session = getSession();
   try {
@@ -198,6 +199,19 @@ export const getNextStoryChunkIdByChoiceId = async (
       ),
     );
     console.log("response:: ", response);
+
+    if (response.records.length === 0) {
+      const response = await session.executeRead((txc) =>
+        txc.run<getNextStoryChunkIdByChoiceIdResponse>(
+          getNextStoryChunkIdByChoiceIdQuery_BACKUP,
+          { currentChunkId, choiceId },
+        ),
+      );
+      console.log("response:: ", response);
+
+      const chunkId = response.records[0].get("chunk.id");
+      return chunkId;
+    }
     
     const chunkId = response.records[0].get("chunk.id");
     return chunkId;
