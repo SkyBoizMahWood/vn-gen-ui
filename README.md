@@ -2,33 +2,68 @@
 
 📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/future/vite) for details on supported features.
 
+## Setup
+
+1. Clone the repository
+2. Install dependencies:
+```sh
+npm install
+```
+3. Configure environment variables:
+   - Copy `.env.example` to `.env`
+   - Update the following variables:
+     - `NEO4J_HOST`: Neo4j database host
+     - `NEO4J_PORT`: Neo4j database port
+     - `NEO4J_USER`: Neo4j username
+     - `NEO4J_PASS`: Neo4j password
+     - `PORT`: Application port
+
 ## Development
 
 Run the Express server with Vite dev middleware:
 
-```shellscript
+```sh
 npm run dev
 ```
 
-## Deployment
+## Building for Production
 
-First, build your app for production:
-
+1. Ensure environment variables are properly set
+2. Build the application:
 ```sh
 npm run build
 ```
 
-Then run the app in production mode:
+The build output will be generated in:
+- `build/server` - Server-side code
+- `build/client` - Client-side assets
+
+## Running in Production
+
+Start the production server:
 
 ```sh
 npm start
 ```
 
-Now you'll need to pick a host to deploy it to.
+## Deployment
 
-### DIY
+### Manual Deployment
 
-If you're familiar with deploying Express applications you should be right at home. Just make sure to deploy the output of `npm run build`
+1. Copy the following to your deployment server:
+   - `build/` directory
+   - `package.json`
+   - `package-lock.json`
+   - `.env` (configured for production)
 
-- `build/server`
-- `build/client`
+2. On the deployment server:
+   ```sh
+   npm install --production
+   npm start
+   ```
+
+## Troubleshooting
+
+- Ensure all environment variables are properly set
+- Check Neo4j connection if database-related errors occur
+- Verify network ports are available
