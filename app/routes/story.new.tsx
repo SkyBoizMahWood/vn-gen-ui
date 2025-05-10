@@ -1,6 +1,6 @@
 import type { ActionFunctionArgs, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
-import { useActionData, useNavigation } from "@remix-run/react";
+import { useActionData, useNavigation, Link } from "@remix-run/react";
 import CreateStoryForm from "~/components/CreateStoryForm";
 import { useState, useEffect, useRef } from "react";
 
@@ -99,6 +99,11 @@ export default function CreateStoryPage() {
 
   return (
     <div className="p-4 md:p-8">
+      <div className="mb-4">
+        <Link to="/" className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-200">
+          &larr; Go back
+        </Link>
+      </div>
       <header className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-800">Create New Story</h1>
         <p className="text-lg text-slate-600">Fill in the details below to generate your visual novel.</p>

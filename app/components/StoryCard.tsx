@@ -1,5 +1,6 @@
 import { Form } from "@remix-run/react";
 import LoadingSpinner from "./LoadingSpinner";
+import React from "react";
 
 type Story = {
   id: string;
@@ -11,22 +12,82 @@ type Story = {
 type StoryCardProps = {
   story: Story;
   isLoading: boolean;
+  onDelete?: (storyId: string) => void;
 };
 
-export default function StoryCard({ story, isLoading }: StoryCardProps) {
+function TrashIcon({ className = "", ...props }: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      width={20}
+      height={20}
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        d="M7 2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1h3a1 1 0 1 1 0 2h-1v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5H2a1 1 0 1 1 0-2h3V2zm2-1a1 1 0 0 0-1 1v1h6V2a1 1 0 0 0-1-1H9zm6 4H5v11a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+export default function StoryCard({ story, isLoading, onDelete }: StoryCardProps) {
+  const [deleting, setDeleting] = React.useState(false);
+
+  const handleDelete = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (deleting) return;
+    setDeleting(true);
+    try {
+      const res = await fetch(`/api/story/${story.id}`, {
+        method: "DELETE",
+      });
+      if (res.ok) {
+        onDelete && onDelete(story.id);
+      } else {
+        alert("Failed to delete story");
+      }
+    } catch (err) {
+      alert("Error deleting story");
+    } finally {
+      setDeleting(false);
+    }
+  };
+
   return (
     <Form action="?index" method="POST" className="h-full">
       <input type="hidden" name="storyId" value={story.id} />
       <button
-        className="flex h-full w-full flex-col rounded-lg border-2 border-indigo-500 
+        className="relative flex h-full w-full flex-col rounded-lg border-2 border-indigo-500 
                    bg-white p-6 text-left shadow-md transition-all 
                    hover:border-indigo-600 hover:bg-indigo-50 
                    hover:scale-105
                    disabled:opacity-50 dark:bg-slate-800 
                    dark:hover:bg-slate-700"
-        disabled={isLoading}
+        disabled={isLoading || deleting}
         title={`Id: ${story.id}\nThemes: ${story.themes.join(", ")}`}
       >
+        {/* Trash icon button in top-right, inside card */}
+        <span className="absolute right-3 top-3 z-20">
+          <button
+            className="rounded-full p-1 bg-white/80 hover:bg-red-100 text-red-600 shadow transition disabled:opacity-50"
+            onClick={handleDelete}
+            disabled={deleting || isLoading}
+            type="button"
+            aria-label="Delete story"
+            tabIndex={0}
+          >
+            {deleting ? (
+              <LoadingSpinner size="sm" position="inline" color="primary" />
+            ) : (
+              <TrashIcon className="w-5 h-5" />
+            )}
+          </button>
+        </span>
         {/* Story Title */}
         <h2 className="mb-3 text-xl font-bold text-indigo-600 dark:text-indigo-400">
           {story.title}
@@ -51,7 +112,7 @@ export default function StoryCard({ story, isLoading }: StoryCardProps) {
         </div>
 
         {/* Loading Indicator */}
-        {isLoading && (
+        {(isLoading || deleting) && (
           <div className="mt-4 flex justify-center">
             <LoadingSpinner size="sm" position="inline" color="primary" />
           </div>

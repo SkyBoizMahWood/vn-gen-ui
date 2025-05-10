@@ -8,6 +8,7 @@ import StoryCard from "~/components/StoryCard";
 import { getAllStoryDataWithoutExtraData } from "~/data/getStoryData";
 import { getFirstStoryChunkId } from "~/db/stories";
 import BackgroundImage from "~/components/BackgroundImage";
+import { useEffect, useState } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -34,10 +35,22 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function Index() {
-  const stories = useLoaderData<typeof loader>();
+  const initialStories = useLoaderData<typeof loader>();
   const navigation = useNavigation();
   const formData = navigation.formData;
   const loadingStoryId = formData?.get("storyId")?.toString();
+
+  const [stories, setStories] = useState(initialStories);
+
+  useEffect(() => {
+    setStories(initialStories);
+  }, [initialStories]);
+
+  const handleDelete = async (storyId: string) => {
+    setStories((prev) => prev.filter((s) => s.id !== storyId));
+    // Reset the cache in getStoryData via API route
+    await fetch("/api/story/reset-cache", { method: "POST" });
+  };
 
   stories.sort((a, b) =>
     a.generated_by > b.generated_by ? 1 : b.generated_by > a.generated_by ? -1 : 0
@@ -83,6 +96,7 @@ export default function Index() {
               key={story.id}
               story={story}
               isLoading={navigation.state === "loading" && loadingStoryId === story.id}
+              onDelete={handleDelete}
             />
           ))}
         </div>
