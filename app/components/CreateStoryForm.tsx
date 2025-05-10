@@ -93,19 +93,14 @@ export default function CreateStoryForm({ isSubmitting, actionData }: CreateStor
         </button>
       </div>
       {actionData && (
-        <div className={`mt-4 p-4 rounded-md ${actionData instanceof Response && actionData.ok ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-          <h3 className="font-bold">{actionData instanceof Response && actionData.ok ? "Success!" : "Error!"}</h3>
+        <div className={`mt-4 p-4 rounded-md ${actionData.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+          <h3 className="font-bold">{actionData.success ? "Success!" : "Error!"}</h3>
           <p>
-            {actionData instanceof Response && actionData.ok 
-              ? `Story generation initiated. Story ID: ${JSON.parse(actionData.body?.toString() || '{}')?.story_id}`
-              : actionData instanceof Response ? actionData.statusText : 'An error occurred'
+            {actionData.success
+              ? `Story generation initiated. Story ID: ${actionData.data.story_id}`
+              : actionData.error
             }
           </p>
-          {actionData instanceof Response && actionData.ok && actionData.body && (
-            <pre className="mt-2 text-xs whitespace-pre-wrap">
-              {JSON.stringify(JSON.parse(actionData.body.toString()), null, 2)}
-            </pre>
-          )}
         </div>
       )}
     </Form>
