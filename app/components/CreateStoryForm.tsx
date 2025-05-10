@@ -69,16 +69,6 @@ export default function CreateStoryForm({ isSubmitting, actionData }: CreateStor
             </div>
         </div>
       </fieldset>
-
-      <div>
-        <label htmlFor="existing_plot" className={labelClassName}>Existing Plot (Optional):</label>
-        <textarea name="existing_plot" id="existing_plot" rows={3} className={inputClassName} placeholder="Enter an existing plot if you have one..."></textarea>
-      </div>
-
-      <div>
-        <label htmlFor="seed" className={labelClassName}>Seed (Optional):</label>
-        <input type="number" name="seed" id="seed" className={inputClassName} placeholder="Enter a number for reproducible results" />
-      </div>
       
       <div className="flex items-center">
         <input type="checkbox" name="enable_image_generation" id="enable_image_generation" className="h-4 w-4 text-sky-600 border-gray-300 rounded focus:ring-sky-500" />
