@@ -2,6 +2,7 @@ import type { ActionFunctionArgs, LoaderFunctionArgs, MetaFunction } from "@remi
 import { json, redirect } from "@remix-run/node";
 import { useActionData, useNavigation } from "@remix-run/react";
 import CreateStoryForm from "~/components/CreateStoryForm";
+import { useState, useEffect, useRef } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,13 +12,13 @@ export const meta: MetaFunction = () => {
 };
 
 // Define a type for the expected API response
-interface ApiStoryResponse {
+export interface ApiStoryResponse {
   message: string;
   story_id?: string;
   // Potentially other fields from the API response, e.g., details or error info
 }
 
-interface ActionResponse {
+export interface ActionResponse {
   success: boolean;
   error?: string;
   data?: ApiStoryResponse;

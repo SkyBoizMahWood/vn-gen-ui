@@ -1,9 +1,11 @@
 import { Form } from "@remix-run/react";
-import type { action } from "~/routes/story.new"; // Assuming action type can be imported
+// import type { action } from "~/routes/story.new"; // Assuming action type can be imported - this line will be removed
+import type { ActionResponse } from "~/routes/story.new"; // Import the exported type
 
 interface CreateStoryFormProps {
   isSubmitting: boolean;
-  actionData?: ReturnType<typeof action extends (...args: any[]) => Promise<infer R> ? () => R : never>;
+  // actionData?: ReturnType<typeof action extends (...args: any[]) => Promise<infer R> ? () => R : never>; - this line will be replaced
+  actionData?: ActionResponse; // Use the imported type
 }
 
 export default function CreateStoryForm({ isSubmitting, actionData }: CreateStoryFormProps) {
@@ -97,7 +99,7 @@ export default function CreateStoryForm({ isSubmitting, actionData }: CreateStor
           <h3 className="font-bold">{actionData.success ? "Success!" : "Error!"}</h3>
           <p>
             {actionData.success
-              ? `Story generation initiated. Story ID: ${actionData.data.story_id}`
+              ? `Story generation initiated. Story ID: ${actionData.data?.story_id}`
               : actionData.error
             }
           </p>
