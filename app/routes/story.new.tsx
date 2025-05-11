@@ -101,7 +101,7 @@ export default function CreateStoryPage() {
   const [logs, setLogs] = useState<string[]>([]);
 
   useEffect(() => {
-    const eventSource = new EventSource("http://localhost:8000/logs/stream");
+    const eventSource = new EventSource("/api/logs/stream");
     eventSource.onmessage = (event) => {
       setLogs((prev) => [...prev, event.data]);
     };
