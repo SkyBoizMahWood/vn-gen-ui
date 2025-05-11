@@ -1,17 +1,27 @@
 import { Form } from "@remix-run/react";
 // import type { action } from "~/routes/story.new"; // Assuming action type can be imported - this line will be removed
 import type { ActionResponse } from "~/routes/story.new"; // Import the exported type
+import { useEffect, useRef } from "react";
 
 interface CreateStoryFormProps {
   isSubmitting: boolean;
   // actionData?: ReturnType<typeof action extends (...args: any[]) => Promise<infer R> ? () => R : never>; - this line will be replaced
   actionData?: ActionResponse; // Use the imported type
+  logs?: string[]; // Add this line
 }
 
-export default function CreateStoryForm({ isSubmitting, actionData }: CreateStoryFormProps) {
+export default function CreateStoryForm({ isSubmitting, actionData, logs }: CreateStoryFormProps) {
   // Helper for consistent input styling
   const inputClassName = "mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none";
   const labelClassName = "block text-sm font-medium text-slate-700";
+
+  // Ref for auto-scrolling logs
+  const logsEndRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (logsEndRef.current) {
+      logsEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [logs]);
 
   return (
     <Form method="post" className="space-y-6 max-w-2xl mx-auto bg-white p-8 shadow-xl rounded-lg">
@@ -93,6 +103,13 @@ export default function CreateStoryForm({ isSubmitting, actionData }: CreateStor
               : actionData.error
             }
           </p>
+        </div>
+      )}
+      {logs && logs.length > 0 && (
+        <div className="mt-4 bg-slate-100 p-2 rounded max-h-48 overflow-y-auto">
+          <h4 className="font-bold text-xs mb-1">Logs</h4>
+          <pre className="text-xs">{logs.join("\n")}</pre>
+          <div ref={logsEndRef} />
         </div>
       )}
     </Form>

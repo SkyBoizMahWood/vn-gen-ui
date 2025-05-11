@@ -2,7 +2,7 @@ import type { ActionFunctionArgs, LoaderFunctionArgs, MetaFunction } from "@remi
 import { json, redirect } from "@remix-run/node";
 import { useActionData, useNavigation, Link } from "@remix-run/react";
 import CreateStoryForm from "~/components/CreateStoryForm";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -97,6 +97,20 @@ export default function CreateStoryPage() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
+  // --- Add log streaming state ---
+  const [logs, setLogs] = useState<string[]>([]);
+
+  useEffect(() => {
+    const eventSource = new EventSource("http://localhost:8000/logs/stream");
+    eventSource.onmessage = (event) => {
+      setLogs((prev) => [...prev, event.data]);
+    };
+    return () => {
+      eventSource.close();
+    };
+  }, []);
+  // --- End log streaming state ---
+
   return (
     <div className="p-4 md:p-8">
       <div className="mb-4">
@@ -108,7 +122,12 @@ export default function CreateStoryPage() {
         <h1 className="text-4xl font-bold text-slate-800">Create New Story</h1>
         <p className="text-lg text-slate-600">Fill in the details below to generate your visual novel.</p>
       </header>
-      <CreateStoryForm isSubmitting={isSubmitting} actionData={actionData} />
+      <CreateStoryForm isSubmitting={isSubmitting} actionData={actionData} logs={logs} />
+      {/* Optionally, show logs here too */}
+      {/* <div className="mt-8 bg-slate-100 p-4 rounded">
+        <h2 className="font-bold mb-2">Live Logs</h2>
+        <pre className="text-xs max-h-64 overflow-y-auto">{logs.join("\n")}</pre>
+      </div> */}
     </div>
   );
 } 
