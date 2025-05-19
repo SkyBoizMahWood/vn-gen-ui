@@ -3,7 +3,7 @@ import "dotenv/config";
 import nconf from "nconf";
 
 nconf
-  .env(["PORT", "NODE_ENV"])
+  .env(["PORT", "NODE_ENV", "NEO4J_URL"])
   .argv({
     e: {
       alias: "NODE_ENV",
@@ -28,7 +28,7 @@ nconf
     USERNAME: process.env.NEO4J_USER,
     PASSWORD: process.env.NEO4J_PASS,
     neo4j: "local",
-    "neo4j-local":
+    "neo4j-url": process.env.NEO4J_URL ||
       `bolt://${process.env.NEO4J_HOST}:${process.env.NEO4J_PORT}` ||
       "bolt://localhost:7687",
   });
