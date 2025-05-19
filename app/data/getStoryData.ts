@@ -71,7 +71,9 @@ declare global {
 }
 
 // Initialize the global cache if it doesn't exist
-globalThis.storyDataCache = globalThis.storyDataCache || null;
+if (typeof globalThis.storyDataCache === "undefined") {
+  globalThis.storyDataCache = undefined;
+}
 
 export default async function getAllStoryData(): Promise<any[]> {
   const now = Date.now();
@@ -101,7 +103,9 @@ declare global {
 }
 
 // Initialize the global cache if it doesn't exist
-globalThis.storyDataCacheWithoutExtraData = globalThis.storyDataCacheWithoutExtraData || null;
+if (typeof globalThis.storyDataCacheWithoutExtraData === "undefined") {
+  globalThis.storyDataCacheWithoutExtraData = undefined;
+}
 
 export async function getAllStoryDataWithoutExtraData(): Promise<any[]> {
   const now = Date.now();
@@ -136,3 +140,9 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     },
   });
 };
+
+// Function to reset both caches
+export function resetStoryDataCache() {
+  globalThis.storyDataCache = undefined;
+  globalThis.storyDataCacheWithoutExtraData = undefined;
+}
