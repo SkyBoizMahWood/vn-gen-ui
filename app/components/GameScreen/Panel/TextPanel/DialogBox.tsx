@@ -11,7 +11,8 @@ export default function DialogBox({
 }: Readonly<DialogBoxProps>) {
   return (
     <p
-      className={`text-lg leading-relaxed tracking-wide text-slate-50 lg:text-xl 2xl:text-2xl ${
+      className={`text-lg leading-relaxed tracking-wide text-slate-50 lg:text-xl 2xl:text-2xl 
+                  select-none ${
         isNarrator &&
         "text-center text-xl font-bold lg:px-16 lg:text-2xl 2xl:text-3xl"
       }`}
