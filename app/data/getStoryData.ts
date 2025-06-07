@@ -43,10 +43,9 @@ export async function fetchStoryDataWithoutExtraData(): Promise<any[]> {
   try {
     const result = await session.run(
       "MATCH (storyData:StoryData) RETURN storyData.id AS id, storyData.title AS title, storyData.genre AS genre, storyData.themes AS themes, storyData.generated_by AS generated_by"
-    );
+    )
 
     const storyDataList = result.records.map((record) => {
-      // Convert Neo4j properties to StoryData object without main_scenes and main_characters
       return {
         id: record.get("id"),
         title: record.get("title"),

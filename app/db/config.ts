@@ -28,7 +28,8 @@ nconf
     USERNAME: process.env.NEO4J_USER,
     PASSWORD: process.env.NEO4J_PASS,
     neo4j: "local",
-    "neo4j-url": process.env.NEO4J_URL ||
+    "neo4j-url":
+      process.env.NEO4J_URL ||
       `bolt://${process.env.NEO4J_HOST}:${process.env.NEO4J_PORT}` ||
       "bolt://localhost:7687",
   });
