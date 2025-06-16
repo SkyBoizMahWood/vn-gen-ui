@@ -121,6 +121,7 @@ export default function Index() {
               story={story}
               isLoading={navigation.state === "loading" && loadingStoryId === story.id}
               onDelete={handleDelete}
+              userRole={user.role}
             />
           ))}
         </div>

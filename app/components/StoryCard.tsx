@@ -13,6 +13,7 @@ type StoryCardProps = {
   story: Story;
   isLoading: boolean;
   onDelete?: (storyId: string) => void;
+  userRole?: string;
 };
 
 function TrashIcon({ className = "", ...props }: React.SVGProps<SVGSVGElement>) {
@@ -35,7 +36,7 @@ function TrashIcon({ className = "", ...props }: React.SVGProps<SVGSVGElement>) 
   );
 }
 
-export default function StoryCard({ story, isLoading, onDelete }: StoryCardProps) {
+export default function StoryCard({ story, isLoading, onDelete, userRole }: StoryCardProps) {
   const [deleting, setDeleting] = React.useState(false);
 
   const handleDelete = async (e: React.MouseEvent) => {
@@ -72,22 +73,24 @@ export default function StoryCard({ story, isLoading, onDelete }: StoryCardProps
         title={`Id: ${story.id}\nThemes: ${story.themes.join(", ")}`}
       >
         {/* Trash icon button in top-right, inside card */}
-        <span className="absolute right-3 top-3 z-20">
-          <button
-            className="rounded-full p-1 bg-white/80 hover:bg-red-100 text-red-600 shadow transition disabled:opacity-50"
-            onClick={handleDelete}
-            disabled={deleting || isLoading}
-            type="button"
-            aria-label="Delete story"
-            tabIndex={0}
-          >
-            {deleting ? (
-              <LoadingSpinner size="sm" position="inline" color="primary" />
-            ) : (
-              <TrashIcon className="w-5 h-5" />
-            )}
-          </button>
-        </span>
+        {userRole === "admin" && (
+          <span className="absolute right-3 top-3 z-20">
+            <button
+              className="rounded-full p-1 bg-white/80 hover:bg-red-100 text-red-600 shadow transition disabled:opacity-50"
+              onClick={handleDelete}
+              disabled={deleting || isLoading}
+              type="button"
+              aria-label="Delete story"
+              tabIndex={0}
+            >
+              {deleting ? (
+                <LoadingSpinner size="sm" position="inline" color="primary" />
+              ) : (
+                <TrashIcon className="w-5 h-5" />
+              )}
+            </button>
+          </span>
+        )}
         {/* Story Title */}
         <h2 className="mb-3 text-xl font-bold text-indigo-600 dark:text-indigo-400">
           {story.title}
