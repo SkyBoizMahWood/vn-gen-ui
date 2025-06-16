@@ -3,6 +3,7 @@ import { json, redirect } from "@remix-run/node";
 import { useActionData, useNavigation, Link } from "@remix-run/react";
 import CreateStoryForm from "~/components/CreateStoryForm";
 import { useState, useEffect } from "react";
+import { requireAdmin } from "~/utils/auth.server";
 
 export const meta: MetaFunction = () => {
   return [
@@ -26,7 +27,16 @@ export interface ActionResponse {
 
 const API_BASE_URL = process.env.AUTO_VN_GEN_API_URL || "http://localhost:8000";
 
+export async function loader({ request }: LoaderFunctionArgs) {
+  // Kiểm tra quyền admin
+  await requireAdmin(request);
+  return null;
+}
+
 export async function action({ request }: ActionFunctionArgs): Promise<Response> {
+  // Kiểm tra quyền admin
+  await requireAdmin(request);
+
   const formData = await request.formData();
 
   const themesString = formData.get("themes") as string;
