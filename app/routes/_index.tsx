@@ -3,12 +3,17 @@ import {
   LoaderFunctionArgs,
   type MetaFunction,
 } from "@remix-run/node";
-import { Link, redirect, useLoaderData, useNavigation } from "@remix-run/react";
+import { Link, redirect, useLoaderData, useNavigation, Form } from "@remix-run/react";
 import StoryCard from "~/components/StoryCard";
 import { getAllStoryDataWithoutExtraData } from "~/data/getStoryData";
 import { getFirstStoryChunkId } from "~/db/stories";
 import BackgroundImage from "~/components/BackgroundImage";
 import { useEffect, useState } from "react";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { requireUser } from "~/utils/auth.server";
+import { logout } from "~/utils/session.server";
+import type { Story } from "~/types/story";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,15 +22,21 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  const allStoryData = await getAllStoryDataWithoutExtraData();
-  return allStoryData;
-}
+export const loader: LoaderFunction = async ({ request }) => {
+  const user = await requireUser(request);
+  const stories = await getAllStoryDataWithoutExtraData();
+  return json({ user, stories });
+};
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
-  const storyId = formData.get("storyId");
+  const intent = formData.get("intent");
 
+  if (intent === "logout") {
+    return logout(request);
+  }
+
+  const storyId = formData.get("storyId");
   if (!storyId) {
     throw new Error("Story ID is required");
   }
@@ -35,24 +46,24 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function Index() {
-  const initialStories = useLoaderData<typeof loader>();
+  const { user, stories } = useLoaderData<typeof loader>();
   const navigation = useNavigation();
   const formData = navigation.formData;
   const loadingStoryId = formData?.get("storyId")?.toString();
 
-  const [stories, setStories] = useState(initialStories);
+  const [storiesState, setStoriesState] = useState<Story[]>(stories);
 
   useEffect(() => {
-    setStories(initialStories);
-  }, [initialStories]);
+    setStoriesState(stories);
+  }, [stories]);
 
   const handleDelete = async (storyId: string) => {
-    setStories((prev) => prev.filter((s) => s.id !== storyId));
+    setStoriesState((prev: Story[]) => prev.filter((s: Story) => s.id !== storyId));
     // Reset the cache in getStoryData via API route
     await fetch("/api/story/reset-cache", { method: "POST" });
   };
 
-  stories.sort((a, b) =>
+  storiesState.sort((a: Story, b: Story) =>
     a.generated_by > b.generated_by ? 1 : b.generated_by > a.generated_by ? -1 : 0
   );
 
@@ -78,12 +89,25 @@ export default function Index() {
                 </span>
               ))}
             </h1>
-            <Link 
-              to="/story/new"
-              className="ml-4 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Create New Story
-            </Link>
+            <div className="flex items-center gap-4">
+              {user.role === "admin" && (
+                <Link 
+                  to="/story/new"
+                  className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Create New Story
+                </Link>
+              )}
+              <Form method="post">
+                <input type="hidden" name="intent" value="logout" />
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                >
+                  Logout
+                </button>
+              </Form>
+            </div>
           </div>
         </div>
       </header>
@@ -91,12 +115,13 @@ export default function Index() {
       {/* Main Content Section */}
       <main className="mx-auto max-w-7xl px-4 pt-24">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {stories.map((story) => (
+          {storiesState.map((story) => (
             <StoryCard
               key={story.id}
               story={story}
               isLoading={navigation.state === "loading" && loadingStoryId === story.id}
               onDelete={handleDelete}
+              userRole={user.role}
             />
           ))}
         </div>

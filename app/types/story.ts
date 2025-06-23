@@ -1,0 +1,30 @@
+export interface Story {
+  id: string;
+  title: string;
+  description: string;
+  generated_by: string;
+  created_at: string;
+  updated_at: string;
+  status: string;
+  genre: string;
+  tags: string[];
+  themes: string[];
+  cover_image?: string;
+  author?: string;
+  rating?: number;
+  views?: number;
+  likes?: number;
+  comments?: number;
+  is_public: boolean;
+  is_featured: boolean;
+  is_published: boolean;
+  is_deleted: boolean;
+  deleted_at?: string;
+  deleted_by?: string;
+  restored_at?: string;
+  restored_by?: string;
+  last_modified_by?: string;
+  last_modified_at?: string;
+  version?: number;
+  metadata?: Record<string, any>;
+} 
